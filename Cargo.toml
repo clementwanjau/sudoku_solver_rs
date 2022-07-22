@@ -1,0 +1,9 @@
+[package]
+name = "sudoku_solver_rs"
+version = "1.0.0"
+authors = ["Clement Wanjau <clementwanjau@yahoo.com>"]
+edition = "2018"
+
+
+[dependencies]
+clap = "3.2.12"
