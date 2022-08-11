@@ -1,9 +1,12 @@
 use std::fs;
 use std::path::Path;
 use clap::{Arg, Command};
+use crate::puzzle::Puzzle;
 use crate::solver::solve_puzzle;
 
 pub mod solver;
+pub mod puzzle;
+pub mod utils;
 
 pub fn main(){
     let args = Command::new("sudoku_solver_rs")
@@ -29,8 +32,8 @@ pub fn main(){
         }
         puzzle.push(_row);
     }
-    let solution = solve_puzzle(puzzle, (2i32, 2i32));
+    let solution = solve_puzzle(puzzle, (1i32, 1i32));
     let solution_path = Path::new(file_path).file_stem().unwrap();
     // Write the solution to a file.
-    // fs::write(format!("{}_solution.txt", solution_path.to_str().unwrap()), solution);
+    fs::write(format!("{}_solution.txt", solution_path.to_str().unwrap()), solution.to_string()).unwrap();
 }
